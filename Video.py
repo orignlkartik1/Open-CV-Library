@@ -1,7 +1,7 @@
 import cv2 as cv
 
 # This function use for open camera. If you have more than two cameras you can pass argument 1,2,... . O is for your default camera.
-cap=cv.Videocapture(0) 
+cap=cv.Videocapture(0) # you can also play any video passing file name in place of 0.
 
 # use if for checking camera is open or not.
 if not cap.isOpened():

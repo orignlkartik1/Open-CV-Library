@@ -1,0 +1,33 @@
+import cv2 as cv
+
+# This function use for open camera. If you have more than two cameras you can pass argument 1,2,... . O is for your default camera.
+cap=cv.Videocapture(0) 
+
+# use if for checking camera is open or not.
+if not cap.isOpened():
+  print("Your camera is not working.")
+  exit()
+
+# for video start 
+while True:
+
+  # read your video frame or rate
+  ret,frame=cap.read()
+
+  # checking from video getting frame or not 
+  if not ret:
+    print("Can't receive frame.")
+    break
+
+  # you have choice to convert your video stream in any color. Its convert your color
+  gray=cv.cvtColor(frame,cv.COLOR_BGR2GRAY)
+
+  # start your video and taking your window name as argument
+  cv.imshow("Window",gray)
+
+  if cv.waitKey(1)==ord('q'):
+      break
+cap.release() 
+cv.destroyAllwindows()
+    
+  
